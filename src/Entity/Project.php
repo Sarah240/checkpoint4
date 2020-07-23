@@ -19,19 +19,16 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Ce champ ne peut pas être vide !")
      */
     private $name;
 
     /**
-     * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Ce champ ne peut pas être vide !")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $image;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Ce champ ne peut pas être vide !")
      */
     private $text;
 

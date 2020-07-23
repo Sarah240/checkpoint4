@@ -1,4 +1,13 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="card">
+    <div class="card-header">{{ title }}</div>
+    <div class="card-body">
+        {{ form_errors(form) }}
+        {{ form_row(form.name) }}
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+        <a href="{{ path("clients_index") }}" class="btn btn-secondary">Retour</a>
+        <button class="btn btn-primary">{{ action }}</button>
+    </div>
+</div>
 {{ form_end(form) }}

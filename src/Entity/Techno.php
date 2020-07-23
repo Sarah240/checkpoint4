@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\TechnoRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass=TechnoRepository::class)
  */
@@ -19,13 +20,11 @@ class Techno
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Ce champ ne peut pas être vide !")
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Ce champ ne peut pas être vide !")
      */
     private $image;
 
