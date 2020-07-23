@@ -19,12 +19,12 @@
                     <tbody>
                         {% for client in clients %}
                             <tr>
-                                <td class="text-center align-middle">{{ clients.id }}</td>
-                                <td class="text-center align-middle">{{ clients.name }}</td>
-                                <td class="text-center align-middle">{{ clients.level }}/10</td>
+                                <td class="text-center align-middle">{{ client.id }}</td>
+                                <td class="text-center align-middle">{{ client.name }}</td>
+                                <td class="text-center align-middle">{{ client.level }}</td>
                                 <td class="text-center align-middle">
-                                    <a href="{{ path("clients_update", { id: clients.id }) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                    <a href="{{ path("clients_delete", { id: clients.id }) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                    
+                                    <a href="{{ path("clients_delete", { id: client.id }) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         {% else %}

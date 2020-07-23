@@ -28,9 +28,9 @@ class TechnoController extends AbstractController
      */
     public function index(TechnoRepository $technoRepository): Response
     {
-        $techno = $technoRepository->findAll();
+
         return $this->render("techno/index.html.twig", [
-            "techno" => $techno
+            "technos" => $technoRepository->findAll(),
         ]);
     }
 

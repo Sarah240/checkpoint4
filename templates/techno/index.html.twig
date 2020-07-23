@@ -19,7 +19,6 @@
                     <tbody>
                         {% for techno in technos %}
                             <tr>
-                                <td class="text-center align-middle">{{ techno.id }}</td>
                                 <td class="text-center align-middle">{{ techno.name }}</td>
                                  <td class="text-center align-middle">
                                     <a href="{{ path("techno_update", { id: techno.id }) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>

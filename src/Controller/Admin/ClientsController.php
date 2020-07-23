@@ -28,12 +28,10 @@ class ClientsController extends AbstractController
      */
     public function index(ClientsRepository $clientsRepository): Response
     {
-        $clients = $clientsRepository->findAll();
         return $this->render("clients/index.html.twig", [
-            "clients" => $clients
+            "clients" => $clientsRepository->findAll(),
         ]);
     }
-
 
     /**
      * @Route("/create", name="clients_create")
@@ -42,12 +40,12 @@ class ClientsController extends AbstractController
      */
     public function create(Request $request): Response
     {
-        $clients = new Clients();
-        $form = $this->createForm(ClientsType::class, $clients);
+        $client = new Clients();
+        $form = $this->createForm(ClientsType::class, $client);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->persist($clients);
+            $this->getDoctrine()->getManager()->persist($client);
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash("success", "Le client a été ajouté avec succès !");
 
@@ -62,13 +60,13 @@ class ClientsController extends AbstractController
 
     /**
      * @Route("/{id}/update", name="clients_update")
-     * @param Clients $clients
+     * @param Clients $client
      * @param Request $request
      * @return Response
      */
-    public function update(Clients $clients, Request $request): Response
+    public function update(Clients $client, Request $request): Response
     {
-        $form = $this->createForm(ClientsType::class, $clients);
+        $form = $this->createForm(ClientsType::class, $client);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -86,12 +84,12 @@ class ClientsController extends AbstractController
 
       /**
      * @Route("/{id}/delete", name="clients_delete")
-     * @param Clients $clients
+     * @param Clients $client
      * @return RedirectResponse
      */
-    public function delete(Clients $clients): RedirectResponse
+    public function delete(Clients $client): RedirectResponse
     {
-        $this->getDoctrine()->getManager()->remove($clients);
+        $this->getDoctrine()->getManager()->remove($client);
         $this->getDoctrine()->getManager()->flush();
         $this->addFlash("success", "Le client a été supprimée avec succès !");
 
