@@ -4,6 +4,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Clients;
+use App\Form\ClientsType;
 use App\Repository\ClientsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -41,7 +42,7 @@ class ClientsController extends AbstractController
      */
     public function create(Request $request): Response
     {
-        $clients = new Clientst();
+        $clients = new Clients();
         $form = $this->createForm(ClientsType::class, $clients);
         $form->handleRequest($request);
 
@@ -84,7 +85,7 @@ class ClientsController extends AbstractController
     }
 
       /**
-     * @Route("/{id}/delete", name="project_delete")
+     * @Route("/{id}/delete", name="clients_delete")
      * @param Clients $clients
      * @return RedirectResponse
      */

@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\TechnoRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * @ORM\Entity(repositoryClass=TechnoRepository::class)
  */
